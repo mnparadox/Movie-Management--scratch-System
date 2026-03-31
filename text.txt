@@ -1,0 +1,20 @@
+Avengers|Action|8.5|2012
+Batman The Dark Knight|Drama|9.0|2008
+Inception|Sci-Fi|8.8|2010
+Titanic|Romance|7.9|1997
+Interstellar|Sci-Fi|8.6|2014
+Parasite|Thriller|8.6|2019
+The Godfather|Crime|9.2|1972
+The Shawshank Redemption|Drama|9.3|1994
+Fight Club|Drama|8.8|1999
+Forrest Gump|Drama|8.8|1994
+The Matrix|Sci-Fi|8.7|1999
+Gladiator|Action|8.5|2000
+Joker|Drama|8.4|2019
+The Lion King|Animation|8.5|1994
+Toy Story|Animation|8.3|1995
+Avengers Endgame|Action|8.4|2019
+Doctor Strange|Fantasy|7.5|2016
+Spider Man No Way Home|Action|8.2|2021
+Harry Potter and the Sorcerer's Stone|Fantasy|7.6|2001
+Lord of the Rings The Return of the King|Fantasy|9.0|2003
