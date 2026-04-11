@@ -32,12 +32,11 @@ void pop_movie(Movie **head)
 
     printf("[*] Popped movie: %s (Deleted from the list)\n", temp->title);
 
-    // Giải phóng bộ nhớ của node vừa lấy ra
     free(temp->title);
     free(temp->category);
     free(temp);
 }
-// 2. Cập nhật thông tin phim
+
 void update_movie(Movie *head, char *name_to_fix)
 {
     Movie *temp = head;
@@ -66,7 +65,6 @@ void update_movie(Movie *head, char *name_to_fix)
     }
 }
 
-// 3. Xóa phim
 void delete_movie(Movie **head, char *name_to_delete)
 {
     Movie *temp = *head, *prev = NULL;
@@ -94,7 +92,6 @@ void delete_movie(Movie **head, char *name_to_delete)
     }
 }
 
-// 4. Tìm kiếm theo thể loại
 void search_by_category(Movie *head, char *choosen_category)
 {
     Movie *temp = head;
@@ -112,7 +109,6 @@ void search_by_category(Movie *head, char *choosen_category)
         printf("\nNo movies found in category: %s", choosen_category);
 }
 
-// 5. Sắp xếp theo Rating (Cao đến thấp)
 void sort_by_rating(Movie *head)
 {
     if (head == NULL)
@@ -130,7 +126,7 @@ void sort_by_rating(Movie *head)
                 int temp_y = i->year;
                 i->year = j->year;
                 j->year = temp_y;
-                // Hoán đổi Title & Category (địa chỉ con trỏ)
+
                 char *temp_t = i->title;
                 i->title = j->title;
                 j->title = temp_t;
@@ -158,7 +154,6 @@ void display_all(Movie *head)
     }
 }
 
-// 7. Lưu file (Dùng dấu gạch đứng | làm phân cách)
 void save_to_file(Movie *head, const char *filename)
 {
     FILE *f = fopen(filename, "w");
@@ -174,7 +169,6 @@ void save_to_file(Movie *head, const char *filename)
     printf("\n[*] Data saved to %s\n", filename);
 }
 
-// 8. Load file (Fix lỗi text.txt)
 Movie *load_from_file(const char *filename)
 {
     FILE *f = fopen(filename, "r");
@@ -187,7 +181,7 @@ Movie *load_from_file(const char *filename)
         char t[100], c[100];
         float r;
         int y;
-        // Xóa dấu \n ở cuối dòng để sscanf không bị lỗi
+
         line[strcspn(line, "\r\n")] = 0;
         if (sscanf(line, "%[^|]|%[^|]|%f|%d", t, c, &r, &y) == 4)
         {
@@ -198,7 +192,6 @@ Movie *load_from_file(const char *filename)
     return head;
 }
 
-// 9. Giải phóng bộ nhớ
 void free_all(Movie *head)
 {
     while (head != NULL)
