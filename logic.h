@@ -11,8 +11,8 @@ typedef struct Movie
     struct Movie *next;
 } Movie;
 
-// 2. Khai báo các "nguyên mẫu hàm" (Prototypes)
-void add_movie(Movie **head, char *new_title, char *new_category, int new_year, float new_rating);
+void push_movie(Movie **head, char *new_title, char *new_category, int new_year, float new_rating);
+void pop_movie(Movie **head);
 void update_movie(Movie *head, char *name_to_fix);
 void delete_movie(Movie **head, char *name_to_delete);
 void search_by_category(Movie *head, char *choosen_category);

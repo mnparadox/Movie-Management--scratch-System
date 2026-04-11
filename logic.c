@@ -3,8 +3,7 @@
 #include <string.h>
 #include "logic.h"
 
-// 1. Thêm movie (Chèn vào đầu danh sách)
-void add_movie(Movie **head, char *new_title, char *new_category, int new_year, float new_rating)
+void push_movie(Movie **head, char *new_title, char *new_category, int new_year, float new_rating)
 {
     Movie *new_node = (Movie *)malloc(sizeof(Movie));
     if (!new_node)
@@ -17,8 +16,27 @@ void add_movie(Movie **head, char *new_title, char *new_category, int new_year, 
 
     new_node->next = *head;
     *head = new_node;
+    printf("[*] Pushed: %s to stack.\n", new_title);
 }
 
+void pop_movie(Movie **head)
+{
+    if (*head == NULL)
+    {
+        printf("[!] Empty Stack! No film to pop.\n");
+        return;
+    }
+
+    Movie *temp = *head;
+    *head = (*head)->next;
+
+    printf("[*] Popped movie: %s (Deleted from the list)\n", temp->title);
+
+    // Giải phóng bộ nhớ của node vừa lấy ra
+    free(temp->title);
+    free(temp->category);
+    free(temp);
+}
 // 2. Cập nhật thông tin phim
 void update_movie(Movie *head, char *name_to_fix)
 {
@@ -125,7 +143,6 @@ void sort_by_rating(Movie *head)
     printf("\n[*] Sorted by rating successfully!\n");
 }
 
-// 6. Hiển thị toàn bộ
 void display_all(Movie *head)
 {
     if (!head)
@@ -174,7 +191,7 @@ Movie *load_from_file(const char *filename)
         line[strcspn(line, "\r\n")] = 0;
         if (sscanf(line, "%[^|]|%[^|]|%f|%d", t, c, &r, &y) == 4)
         {
-            add_movie(&head, t, c, y, r);
+            push_movie(&head, t, c, y, r);
         }
     }
     fclose(f);
